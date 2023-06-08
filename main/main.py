@@ -6,6 +6,11 @@ import openpyxl
 brain_name = os.getcwd() + '\\' + "brain_spreadsheet.xlsx"
 brain_wb = openpyxl.load_workbook(brain_name)
 brain_sheet = brain_wb.active
+
+# other variables
+bot_turn = True  # random.choice([True, False])
+game_done = False
+board = "_"*9
 cell_letters = ["B", "C", "D", "E", "F", "G", "K", "I", "J"]
 ai_letter = "X"
 
@@ -15,11 +20,6 @@ brain_sheet["A1"] = "board_layout"
 for i, letter in enumerate(cell_letters):
     brain_sheet[letter+"1"] = i
 brain_wb.save(brain_name)
-
-# other variables
-bot_turn = True  # random.choice([True, False])
-game_done = False
-board = "_"*9
 
 
 # keep prompting the user until int given
@@ -74,27 +74,52 @@ def add_layout():
     brain_wb.save(brain_name)
 
 
+# make a choice and place a marker on the selected space
+def make_choice(current_row):
+    global board
+    accepted = False
+
+    # until a valid move is played
+    while not accepted:
+        # create a list with the amount of opportunity to play per confidence
+        # like 3 confidence in spot 8 means that 8 would be in the list 3 times
+        choices = []
+        for cell in cell_letters:
+            choices += [brain_sheet[cell+"1"].value] * brain_sheet[cell+str(current_row)].value
+
+        # break up the board into a list
+        b = list(board)
+        selected_cell = random.choice(choices)  # select the cell
+
+        # don't let the AI play on occupied spots
+        if b[selected_cell] == "_":
+            # if the selected cell is unoccupied
+            b[selected_cell] = ai_letter
+            board = "".join(b)
+            render_board()
+            accepted = True
+        else:
+            # if the selected cell is occupied
+            print("did the thing")
+            brain_sheet[cell_letters[selected_cell]+str(current_row)] = 0  # set confidence to 0
+            brain_wb.save(brain_name)
+
+
 # main
 def main():
-    global board
+    global bot_turn
     while not game_done:
         # if it is the computer's turn
         if bot_turn:
             # the bot plays
-
             layout_row = check_for_board()
             if layout_row:
                 # the bot has seen the current board before
-                choices = []
-                for cell in cell_letters:
-                    choices += [brain_sheet[cell+"1"].value] * brain_sheet[cell+str(layout_row)].value
+                make_choice(layout_row)
 
-                b = list(board)
-                c = random.choice(choices)
-                b[c] = ai_letter
-                board = "".join(b)
-                render_board()
-
+                # the bot has made a move
+                bot_turn = False
+                continue
             else:
                 # the bot has never seen the board before
                 add_layout()

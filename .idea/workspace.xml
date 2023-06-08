@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="825fe689-da52-4803-8478-4a1f986462f8" name="Changes" comment="ok yeah this isn't going to work">
-      <change afterPath="$PROJECT_DIR$/main/brain_spreadsheet.xlsx" afterDir="false" />
+    <list default="true" id="825fe689-da52-4803-8478-4a1f986462f8" name="Changes" comment="GUYS I MADE A PROGRAM THAT PUTS AN X IN A RANDOM SQUARE">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/brain" beforeDir="false" afterPath="$PROJECT_DIR$/main/brain" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/brain_spreadsheet.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/main/brain_spreadsheet.xlsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -60,11 +59,19 @@
       <option name="project" value="LOCAL" />
       <updated>1686085542645</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="GUYS I MADE A PROGRAM THAT PUTS AN X IN A RANDOM SQUARE">
+      <created>1686186389394</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1686186389394</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="ok yeah this isn't going to work" />
-    <option name="LAST_COMMIT_MESSAGE" value="ok yeah this isn't going to work" />
+    <MESSAGE value="GUYS I MADE A PROGRAM THAT PUTS AN X IN A RANDOM SQUARE" />
+    <option name="LAST_COMMIT_MESSAGE" value="GUYS I MADE A PROGRAM THAT PUTS AN X IN A RANDOM SQUARE" />
   </component>
 </project>
